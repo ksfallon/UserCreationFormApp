@@ -39,7 +39,7 @@ namespace UserCreationFormApp
                 Email = this.tbEmail.Text,
                 Phone = this.tbPhone.Text,
                 Address = this.tbAddress.Text,
-                CreatedAt = DateTime.Now.ToString(),
+                //CreatedAt = DateTime.Now.ToString(),
             };
 
             var repo = new UserRepository();

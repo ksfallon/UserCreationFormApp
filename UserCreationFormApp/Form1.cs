@@ -53,6 +53,8 @@ namespace UserCreationFormApp
             }
         }
 
+        //this is off - not saving when editting
+
         private void btnEditUser_Click(object sender, EventArgs e)
         {
             var value = this.userTable.SelectedRows[0].Cells[0].Value.ToString();
@@ -72,6 +74,33 @@ namespace UserCreationFormApp
                 // update the list of Users
                 ReadUsers();
             }
+        }
+
+        //this is off - not saving when editting
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            var val = this.userTable.SelectedRows[0].Cells[0].Value.ToString();
+            if (val == null || val.Length == 0) return;
+
+            int userId = int.Parse(val);
+
+            //show confirm dialog
+            DialogResult dialogResult = MessageBox.Show(
+                "Are you sure you want to delete this User?",
+                "Delete User",
+                MessageBoxButtons.YesNo
+                );
+
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            var repo = new UserRepository();
+            repo.DeleteUser(userId);
+
+            // Update the user list
+            ReadUsers();
         }
     }
 }

@@ -66,6 +66,7 @@
             btnDeleteUser.TabIndex = 2;
             btnDeleteUser.Text = "Delete User";
             btnDeleteUser.UseVisualStyleBackColor = true;
+            btnDeleteUser.Click += btnDeleteUser_Click;
             // 
             // btnEditUser
             // 
